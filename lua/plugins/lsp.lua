@@ -16,25 +16,6 @@ return {
                 callback = function()
                 end
             })
-
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT'
-                        },
-                        diagnostics = {
-                            globals = {'vim'},
-                        },
-                        workspace = {
-                            library = {
-                                vim.env.VIMRUNTIME,
-                            }
-                        }
-                    }
-                }
-            })
-
             vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { silent = true })
             vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename)
         end
@@ -54,7 +35,29 @@ return {
             require("mason").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {},
-                handlers = {default_setup}
+                handlers = {
+                    default_setup,
+                    lua_ls = function ()
+                        require("lspconfig").lua_ls.setup({
+                            settings = {
+                                Lua = {
+                                    runtime = {
+                                        version = 'LuaJIT'
+                                    },
+                                    diagnostics = {
+                                        globals = {'vim'},
+                                    },
+                                    workspace = {
+                                        library = {
+                                            vim.env.VIMRUNTIME,
+                                        }
+                                    }
+                                }
+                            }
+                        })
+
+                    end
+                }
             })
         end
     },
