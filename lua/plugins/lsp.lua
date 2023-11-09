@@ -64,6 +64,7 @@ return {
             "neovim/nvim-lspconfig",
             "hrsh7th/cmp-nvim-lsp",
             "L3MON4D3/LuaSnip",
+            { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
         },
         config = function ()
             local cmp = require('cmp')
@@ -84,6 +85,9 @@ return {
                     expand = function(args)
                         require('luasnip').lsp_expand(args.body)
                     end,
+                },
+                formatting = {
+                    format = require("tailwindcss-colorizer-cmp").formatter
                 },
                 completion = {
                     completeopt = "menu,preview"
