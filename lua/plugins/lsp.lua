@@ -1,21 +1,14 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
-            "L3MON4D3/LuaSnip",
-        },
-        config = function ()
+        init = function ()
             local lspconfig = require("lspconfig")
             local lsp_defaults = lspconfig.util.default_config
 
             lsp_defaults.capabilities = vim.tbl_deep_extend(
-            "force",
-            lsp_defaults.capabilities,
-            require("cmp_nvim_lsp").default_capabilities()
+                "force",
+                lsp_defaults.capabilities,
+                require("cmp_nvim_lsp").default_capabilities()
             )
 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -24,6 +17,36 @@ return {
                 end
             })
 
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT'
+                        },
+                        diagnostics = {
+                            globals = {'vim'},
+                        },
+                        workspace = {
+                            library = {
+                                vim.env.VIMRUNTIME,
+                            }
+                        }
+                    }
+                }
+            })
+
+            vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { silent = true })
+            vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename)
+        end
+    },
+    {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig"
+        },
+        config = function ()
+            local lspconfig = require("lspconfig")
             local default_setup = function (server)
                 lspconfig[server].setup({})
             end
@@ -33,7 +56,16 @@ return {
                 ensure_installed = {},
                 handlers = {default_setup}
             })
-
+        end
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "hrsh7th/cmp-nvim-lsp",
+            "L3MON4D3/LuaSnip",
+        },
+        config = function ()
             local cmp = require('cmp')
 
             cmp.setup({
@@ -53,29 +85,10 @@ return {
                         require('luasnip').lsp_expand(args.body)
                     end,
                 },
-            })
-
-            require('lspconfig').lua_ls.setup({
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT'
-                        },
-                        diagnostics = {
-                            globals = {'vim'},
-                        },
-                        workspace = {
-                            library = {
-                                vim.env.VIMRUNTIME,
-                            }
-                        }
-                    }
+                completion = {
+                    completeopt = "menu,preview"
                 }
             })
-        end,
-        init = function ()
-            vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { silent = true })
-            vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename)
         end
     },
     {
@@ -89,16 +102,4 @@ return {
             }
         },
     },
-    {
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        dependencies = { "hrsh7th/nvim-cmp", },
-        config = function()
-            require("tailwindcss-colorizer-cmp").setup({
-                color_square_width = 2,
-            })
-            require("cmp").config.formatting = {
-                format = require("tailwindcss-colorizer-cmp").formatter
-            }
-        end,
-    }
 }
