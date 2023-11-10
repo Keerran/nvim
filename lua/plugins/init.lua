@@ -90,6 +90,7 @@ return {
         event = "LspAttach",
         opts = {
         },
-    }
+    },
+    "lewis6991/satellite.nvim"
 }
 
