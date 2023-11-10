@@ -46,6 +46,9 @@ return {
                 map('n', '<leader>hd', gs.diffthis, { desc = "Diff" })
                 map('n', '<leader>hD', function() gs.diffthis('~') end, { desc = "Diff file" })
             end
-        }
+        },
+        init = function ()
+            vim.opt.signcolumn = "yes"
+        end
     }
 }
