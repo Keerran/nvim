@@ -29,6 +29,11 @@ vim.opt.smartcase = true
 -- unix-style autocomplete
 vim.opt.wildmode =  "longest,full"
 
+-- maintain undo history between sessions
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
+
 -- highlight yanked text for 200ms using the "Cursor" highlight group
 vim.cmd [[
 augroup highlight_yank
