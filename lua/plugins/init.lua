@@ -79,6 +79,17 @@ return {
                 left = {' ', wilder.popupmenu_devicons()},
             }))
         end,
+    },
+    {
+        "DNLHC/glance.nvim",
+        opts = {}
+    },
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {
+        },
     }
 }
 
