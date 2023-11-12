@@ -24,6 +24,7 @@ return {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
+            "folke/neodev.nvim",
             "neovim/nvim-lspconfig"
         },
         config = function ()
@@ -37,6 +38,26 @@ return {
                 ensure_installed = {},
                 handlers = {
                     default_setup,
+                    lua_ls = function ()
+                        require("lspconfig").lua_ls.setup({
+                            settings = {
+                                Lua = {
+                                    runtime = {
+                                        version = 'LuaJIT'
+                                    },
+                                    diagnostics = {
+                                        globals = {'vim'},
+                                    },
+                                    workspace = {
+                                        library = {
+                                            vim.env.VIMRUNTIME,
+                                        }
+                                    }
+                                }
+                            }
+                        })
+
+                    end
                 }
             })
         end
@@ -90,5 +111,4 @@ return {
             }
         },
     },
-    { "folke/neodev.nvim", opts = {} }
 }
