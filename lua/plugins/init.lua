@@ -91,6 +91,7 @@ return {
         opts = {
         },
     },
-    "lewis6991/satellite.nvim"
+    "lewis6991/satellite.nvim",
+    "rafcamlet/nvim-luapad",
 }
 
