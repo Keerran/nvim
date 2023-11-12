@@ -41,3 +41,6 @@ autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Cursor", timeout=100})
 augroup END
 ]]
+
+-- stop comment continuation on newline
+vim.opt.formatoptions:remove("r")
