@@ -5,7 +5,7 @@ return {
     },
     opts = {
         options = {
-            theme = "gruvbox",
+            theme = "auto",
             globalstatus = true,
         },
         winbar = {
