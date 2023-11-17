@@ -29,10 +29,6 @@ end
 -- user command for opening vim config folder
 vim.api.nvim_create_user_command("Config", "execute 'cd' fnamemodify($MYVIMRC, ':h')", {})
 
--- map :W and :Q to :w and :q respectively
-vim.api.nvim_create_user_command("W", "w", {})
-vim.api.nvim_create_user_command("Q", "q", {})
-
 -- <C-s> to save in insert
 vim.keymap.set("i", "<C-s>", "<ESC><CMD>w<CR>")
 
