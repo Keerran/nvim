@@ -89,6 +89,9 @@ return {
         tag = "legacy",
         event = "LspAttach",
         opts = {
+            window = {
+                blend = 0,
+            }
         },
     },
     "lewis6991/satellite.nvim",
