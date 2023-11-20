@@ -51,12 +51,10 @@ return {
         opts = {},
     },
     {
-        "ahmedkhalf/project.nvim",
-        main = "project_nvim",
-        opts = { manual_mode = true },
+        "nvim-telescope/telescope-project.nvim",
         init = function ()
-            require('telescope').load_extension('projects')
-            vim.keymap.set("n", "<leader>fp", require'telescope'.extensions.projects.projects)
+            require('telescope').load_extension('project')
+            vim.keymap.set("n", "<leader>fp", require'telescope'.extensions.project.project)
         end
     },
     "sindrets/diffview.nvim",
