@@ -65,3 +65,6 @@ vim.keymap.set("n", [[\d]], "<cmd>bprevious <bar> bdelete #<cr>", {
 vim.keymap.set("n", "<C-J>", "O<ESC>", { noremap = true })
 vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
 
+-- <ESC> to clear search
+vim.keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR><ESC>", { noremap = true, silent = true })
+
