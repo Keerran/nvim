@@ -43,6 +43,7 @@ return {
             on_attach = attach,
             sync_root_with_cwd = true,
             hijack_cursor = true,
+            select_prompts = true,
             filters = {
                 custom = {
                     "\\.git$",
@@ -51,6 +52,7 @@ return {
             },
             view = {
                 preserve_window_proportions = true,
+                signcolumn = "yes",
             },
             actions = {
                 open_file = {
@@ -60,6 +62,10 @@ return {
             renderer = {
                 icons = {
                     diagnostics_placement = "after",
+                    git_placement = "signcolumn",
+                },
+                indent_markers = {
+                    enable = true
                 },
                 root_folder_label = ":t"
             },
