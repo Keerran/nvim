@@ -101,5 +101,9 @@ return {
         }
     },
     "rafcamlet/nvim-luapad",
+    {
+        "tiagovla/scope.nvim",
+        opts = {},
+    },
 }
 
