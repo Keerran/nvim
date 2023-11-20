@@ -49,7 +49,11 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Select all
-vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
+vim.keymap.set('n', '<C-a>', 'gg<S-v>G', { desc = "Select all", noremap = true })
+
+-- +/- to increment/decrement number
+vim.keymap.set("n", "+", "<C-a>", { desc = "Increment number", noremap = true })
+vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement number", noremap = true })
 
 -- Delete buffer
 vim.keymap.set("n", [[\d]], "<cmd>bprevious <bar> bdelete #<cr>", {
