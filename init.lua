@@ -1,4 +1,5 @@
 require("options")
+require("globals")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

@@ -94,7 +94,8 @@ return {
                 end
             end
         })
-
+        
+        map_group("n", "<leader>e", "NvimTree")
         vim.keymap.set("n", "<leader>ee", ":NvimTreeFocus<cr>", {silent = true, noremap = true})
         vim.keymap.set("n", "<leader>ec", ":NvimTreeClose<cr>", {silent = true, noremap = true})
     end
