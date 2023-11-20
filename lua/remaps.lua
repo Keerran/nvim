@@ -60,3 +60,8 @@ vim.keymap.set("n", [[\d]], "<cmd>bprevious <bar> bdelete #<cr>", {
     silent = true,
     desc = "delete buffer",
 })
+
+-- <C-Enter> to open new line below
+vim.keymap.set("n", "<C-J>", "O<ESC>", { noremap = true })
+vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
+
