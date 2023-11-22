@@ -6,7 +6,17 @@ return {
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
         },
-        opts = {}
+        opts = {
+            disable_hint = true,
+            mappings = {
+                status = {
+                    ["l"] = "Toggle"
+                },
+                popup = {
+                    ["l"] = false,
+                }
+            }
+        }
     },
     {
         "lewis6991/gitsigns.nvim",
