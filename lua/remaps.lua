@@ -55,12 +55,6 @@ vim.keymap.set('n', '<C-a>', 'gg<S-v>G', { desc = "Select all", noremap = true }
 vim.keymap.set("n", "+", "<C-a>", { desc = "Increment number", noremap = true })
 vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement number", noremap = true })
 
--- Delete buffer
-vim.keymap.set("n", [[\d]], "<cmd>bprevious <bar> bdelete #<cr>", {
-    silent = true,
-    desc = "delete buffer",
-})
-
 -- <C-Enter> to open new line below
 vim.keymap.set("n", "<C-J>", "O<ESC>", { noremap = true })
 vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
