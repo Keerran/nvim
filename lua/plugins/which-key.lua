@@ -6,5 +6,9 @@ return {
         vim.o.timeoutlen = 300
     end,
     opts = {
+        triggers_nowait = {
+            -- spelling
+            "z=",
+        }
     },
 }
