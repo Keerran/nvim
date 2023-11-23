@@ -1,4 +1,5 @@
 vim.g.mapleader = "\\"
+vim.g.maplocalleader = ","
 
 -- allow mouse events
 vim.opt.mousemoveevent = true
