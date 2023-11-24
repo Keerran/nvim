@@ -1,5 +1,5 @@
-require("options")
-require("globals")
+require("keerran.options")
+require("keerran.globals")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+require("lazy").setup("keerran.plugins")
 
-require("remaps")
-require("abbreviations")
+require("keerran.remaps")
+require("keerran.abbreviations")

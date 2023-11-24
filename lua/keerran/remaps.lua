@@ -61,4 +61,4 @@ vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
 vim.keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR><ESC>", { noremap = true, silent = true })
 
 -- <leader>! to calculate selection
-vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("util").calculate_selection()<CR>]])
+vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("keerran.util").calculate_selection()<CR>]])
