@@ -32,6 +32,11 @@ return {
             sync_root_with_cwd = true,
             hijack_cursor = true,
             select_prompts = true,
+            git = {
+                enable = true,
+                ignore = true,
+                timeout = 2000
+            },
             filters = {
                 custom = {
                     "\\.git$",
