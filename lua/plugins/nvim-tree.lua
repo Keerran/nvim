@@ -7,18 +7,6 @@ return {
 
         local api = require("nvim-tree.api")
 
-        local function edit_or_open()
-            local node = api.tree.get_node_under_cursor()
-
-            if node.nodes ~= nil then
-                -- expand or collapse folder
-                api.node.open.edit()
-            else
-                -- open file
-                api.node.open.edit()
-            end
-        end
-
         local function collapse()
             local node = api.tree.get_node_under_cursor()
 
@@ -34,7 +22,7 @@ return {
 
             api.config.mappings.default_on_attach(bufnr)
 
-            vim.keymap.set("n", "l", edit_or_open,          opts("Edit Or Open"))
+            vim.keymap.set("n", "l", api.node.open.edit,    opts("Edit Or Open"))
             vim.keymap.set("n", "h", collapse,              opts("Collapse"))
             vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
         end
@@ -94,7 +82,6 @@ return {
                 end
             end
         })
-        
         map_group("n", "<leader>e", "NvimTree")
         vim.keymap.set("n", "<leader>ee", ":NvimTreeFocus<cr>", {silent = true, noremap = true})
         vim.keymap.set("n", "<leader>ec", ":NvimTreeClose<cr>", {silent = true, noremap = true})

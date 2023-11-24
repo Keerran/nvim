@@ -54,7 +54,12 @@ return {
         "nvim-telescope/telescope-project.nvim",
         init = function ()
             require('telescope').load_extension('project')
-            vim.keymap.set("n", "<leader>fp", require'telescope'.extensions.project.project)
+            vim.keymap.set(
+                "n",
+                "<leader>fp",
+                require'telescope'.extensions.project.project,
+                { desc = "Find Project" }
+            )
         end
     },
     "sindrets/diffview.nvim",
