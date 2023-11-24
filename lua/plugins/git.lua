@@ -16,7 +16,14 @@ return {
                     ["l"] = false,
                 }
             }
-        }
+        },
+        init = function ()
+            vim.api.nvim_create_user_command(
+                "Ngit",
+                "Neogit",
+                {}
+            )
+        end
     },
     {
         "lewis6991/gitsigns.nvim",
