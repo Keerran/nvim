@@ -60,7 +60,8 @@ return {
                 indent_markers = {
                     enable = true
                 },
-                root_folder_label = ":t"
+                root_folder_label = ":t",
+                group_empty = true,
             },
             diagnostics = {
                 enable = true,
