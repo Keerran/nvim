@@ -25,9 +25,6 @@ return {
             open_mapping = "<leader>t",
             insert_mappings = false,
         },
-        init = function ()
-            vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
-        end
     },
     {
         'windwp/nvim-autopairs',

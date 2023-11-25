@@ -60,5 +60,8 @@ vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
 -- <ESC> to clear search
 vim.keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR><ESC>", { noremap = true, silent = true })
 
+-- <ESC> in terminal to go to normal mode
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
+
 -- <leader>! to calculate selection
 vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("keerran.util").calculate_selection()<CR>]])
