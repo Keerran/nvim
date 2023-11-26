@@ -3,8 +3,11 @@ local abbreviations = {
     Q = "q",
     Wq = "wq",
     Ngit = "Neogit",
+    ngit = "Neogit",
     Norg = "Neorg",
+    norg = "Neorg",
     Org = "Neorg",
+    org = "Neorg",
 }
 
 for lhs, rhs in pairs(abbreviations) do
