@@ -8,6 +8,7 @@ local abbreviations = {
     norg = "Neorg",
     Org = "Neorg",
     org = "Neorg",
+    git = "Git",
 }
 
 for lhs, rhs in pairs(abbreviations) do
