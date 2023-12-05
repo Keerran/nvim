@@ -18,8 +18,9 @@ return {
             })
             vim.keymap.set("n", "<M-CR>", vim.lsp.buf.code_action, { silent = true })
             vim.keymap.set("n", "<S-F6>", vim.lsp.buf.rename)
-            vim.keymap.set("n", "gD", vim.lsp.buf.definition, { desc = "Go to definition"})
-            vim.keymap.set("n", "<leader>l", vim.lsp.buf.format, {desc = "Format file"})
+            vim.keymap.set("n", "gD", vim.lsp.buf.definition, { desc = "Go to definition" })
+            vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Open hover hint" })
+            vim.keymap.set("n", "<leader>l", vim.lsp.buf.format, { desc = "Format file" })
         end
     },
     {
@@ -58,7 +59,6 @@ return {
                                 }
                             }
                         })
-
                     end,
                     cssls = function()
                         require("lspconfig").cssls.setup({
