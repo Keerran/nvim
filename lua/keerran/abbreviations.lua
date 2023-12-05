@@ -2,6 +2,7 @@ local abbreviations = {
     W = "w",
     Q = "q",
     Wq = "wq",
+    E = "e",
     Ngit = "Neogit",
     ngit = "Neogit",
     Norg = "Neorg",
