@@ -1,6 +1,8 @@
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 
+vim.opt.shellslash = true
+
 -- allow mouse events
 vim.opt.mousemoveevent = true
 
