@@ -1,7 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        init = function ()
+        init = function()
             local lspconfig = require("lspconfig")
             local lsp_defaults = lspconfig.util.default_config
 
@@ -29,9 +29,9 @@ return {
             "folke/neodev.nvim",
             "neovim/nvim-lspconfig"
         },
-        config = function ()
+        config = function()
             local lspconfig = require("lspconfig")
-            local default_setup = function (server)
+            local default_setup = function(server)
                 lspconfig[server].setup({})
             end
 
@@ -40,7 +40,7 @@ return {
                 ensure_installed = {},
                 handlers = {
                     default_setup,
-                    lua_ls = function ()
+                    lua_ls = function()
                         require("lspconfig").lua_ls.setup({
                             settings = {
                                 Lua = {
@@ -48,7 +48,7 @@ return {
                                         version = 'LuaJIT'
                                     },
                                     diagnostics = {
-                                        globals = {'vim'},
+                                        globals = { 'vim' },
                                     },
                                     workspace = {
                                         library = {
@@ -59,7 +59,18 @@ return {
                             }
                         })
 
-                    end
+                    end,
+                    cssls = function()
+                        require("lspconfig").cssls.setup({
+                            settings = {
+                                css = {
+                                    lint = {
+                                        unknownAtRules = "ignore"
+                                    }
+                                }
+                            }
+                        })
+                    end,
                 }
             })
         end
@@ -72,17 +83,17 @@ return {
             "L3MON4D3/LuaSnip",
             { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
         },
-        config = function ()
+        config = function()
             local cmp = require('cmp')
 
             cmp.setup({
                 sources = {
-                    {name = 'nvim_lsp'},
+                    { name = 'nvim_lsp' },
                 },
                 mapping = cmp.mapping.preset.insert({
                     -- Enter key confirms completion item
-                    ['<CR>'] = cmp.mapping.confirm({select = false}),
-                    ['<TAB>'] = cmp.mapping.confirm({select = false}),
+                    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+                    ['<TAB>'] = cmp.mapping.confirm({ select = false }),
                     ['<C-k>'] = cmp.mapping.select_prev_item(),
                     ['<C-j>'] = cmp.mapping.select_next_item(),
                     -- Ctrl + space triggers completion menu
