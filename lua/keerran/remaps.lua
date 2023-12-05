@@ -25,7 +25,7 @@ else
 end
 
 -- user command for opening vim config folder
-vim.api.nvim_create_user_command("Config", "execute 'cd' fnamemodify($MYVIMRC, ':h')", {})
+vim.api.nvim_create_user_command("Config", "execute 'tcd' fnamemodify($MYVIMRC, ':h')", {})
 
 -- <C-s> to save in insert
 vim.keymap.set("i", "<C-s>", "<ESC><CMD>w<CR>")
