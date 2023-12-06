@@ -65,3 +65,13 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- <leader>! to calculate selection
 vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("keerran.util").calculate_selection()<CR>]])
+
+-- make i indent properly on empty lines
+vim.keymap.set("n", "i", function()
+    ---@diagnostic disable-next-line: param-type-mismatch
+    if vim.fn.getline(".") == "" then
+        return [["_cc]]
+    else
+        return "i"
+    end
+end, { expr = true })
