@@ -20,3 +20,4 @@ require("lazy").setup("keerran.plugins")
 
 require("keerran.remaps")
 require("keerran.abbreviations")
+require("keerran.autocmds")

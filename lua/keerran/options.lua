@@ -37,13 +37,5 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
--- highlight yanked text for 200ms using the "Cursor" highlight group
-vim.cmd [[
-augroup highlight_yank
-autocmd!
-au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Cursor", timeout=100})
-augroup END
-]]
-
 -- stop comment continuation on newline
 vim.opt.formatoptions:remove("r")
