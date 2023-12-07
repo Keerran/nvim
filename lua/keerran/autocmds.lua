@@ -6,3 +6,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank({higroup="Cursor", timeout=100})
     end
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        vim.opt.formatoptions:remove("r")
+    end
+})
