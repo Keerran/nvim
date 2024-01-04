@@ -1,13 +1,16 @@
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
 -- highlight yanked text for 200ms using the "Cursor" highlight group
-vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
+augroup('YankHighlight', { clear = true })
+autocmd("TextYankPost", {
     group = "YankHighlight",
     callback = function()
         vim.highlight.on_yank({higroup="Cursor", timeout=100})
     end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
     callback = function()
         vim.opt.formatoptions:remove("r")
     end
