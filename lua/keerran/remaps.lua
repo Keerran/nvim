@@ -65,17 +65,3 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- <leader>! to calculate selection
 vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("keerran.util").calculate_selection()<CR>]])
-
--- make i and a indent properly on empty lines
-local function smart_insert(key)
-    return function ()
-        ---@diagnostic disable-next-line: param-type-mismatch
-        if vim.fn.getline(".") == "" then
-            return [["_cc]]
-        else
-            return key
-        end
-    end
-end
-vim.keymap.set("n", "i", smart_insert("i"), { expr = true })
-vim.keymap.set("n", "a", smart_insert("a"), { expr = true })
