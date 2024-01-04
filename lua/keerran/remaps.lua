@@ -2,11 +2,11 @@
 vim.keymap.set({"i", "c"}, "<C-H>", "<C-W>")
 
 -- paste without changing the register
-vim.keymap.set("x", "p", "\"_dP")
+vim.keymap.set("x", "p", [["_dP]])
 
 -- copy and paste to clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", "\"*y", { desc = "Yank to clipboard" })
-vim.keymap.set({"n", "v"}, "<leader>p", "\"*p", { desc = "Paste from clipboard" })
+vim.keymap.set({"n", "v"}, "<leader>y", [["*y]], { desc = "Yank to clipboard" })
+vim.keymap.set({"n", "v"}, "<leader>p", [["*p]], { desc = "Paste from clipboard" })
 
 -- insert single character
 vim.keymap.set("n", "<Space>", [[:exec "normal i".nr2char(getchar())."\e"<Cr>]], { desc = "Insert a single character", noremap = true, silent = true })
@@ -57,8 +57,15 @@ vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement number", noremap = true })
 vim.keymap.set("n", "<C-J>", "O<ESC>", { noremap = true })
 vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
 
--- <ESC> to clear search
-vim.keymap.set("n", "<ESC>", "<CMD>nohlsearch<CR><ESC>", { noremap = true, silent = true })
+-- <ESC> to clear search and notifications
+local function clearDisplay()
+    vim.cmd.nohlsearch()
+    local ok, notify = pcall(require, "notify")
+    if ok then
+        notify.dismiss()
+    end
+end
+vim.keymap.set("n", "<ESC>", clearDisplay, { noremap = true, silent = true })
 
 -- <ESC> in terminal to go to normal mode
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
