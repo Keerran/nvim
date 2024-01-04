@@ -1,6 +1,16 @@
 return {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                }
+            }
+        }
+    },
     init = function ()
         local builtin = require("telescope.builtin")
         map_group("n", "<leader>f", "Telescope")
