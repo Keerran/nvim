@@ -72,6 +72,17 @@ return {
                             }
                         })
                     end,
+                    rust_analyzer = function()
+                        require("lspconfig").rust_analyzer.setup({
+                            settings = {
+                                ["rust-analyzer"] = {
+                                    check = {
+                                        allTargets = false,
+                                    }
+                                }
+                            }
+                        })
+                    end
                 }
             })
         end
