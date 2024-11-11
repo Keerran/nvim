@@ -2,6 +2,7 @@ return {
     "tpope/vim-fugitive",
     {
         "NeogitOrg/neogit",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
@@ -30,6 +31,12 @@ return {
         "lewis6991/gitsigns.nvim",
         opts = {
             on_attach = function (bufnr)
+                if vim.api.nvim_buf_get_name(bufnr):match('%.ipynb$') then
+                  -- Do not attach for .ipynb file, since these are converted
+                  -- with jupytext.nvim
+                  return false
+                end
+
                 local gs = package.loaded.gitsigns
 
                 local function map(mode, l, r, opts)

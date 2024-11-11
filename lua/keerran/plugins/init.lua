@@ -2,7 +2,7 @@ return {
     {
         "mbbill/undotree",
         init = function ()
-            vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
         end
     },
     {
@@ -30,9 +30,6 @@ return {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         opts = {},
-    },
-    {
-        "eandrju/cellular-automaton.nvim",
     },
     {
         "stevearc/aerial.nvim",
@@ -69,18 +66,6 @@ return {
     },
     "mg979/vim-visual-multi",
     {
-        enabled = false,
-        "gelguy/wilder.nvim",
-        opts = { modes = {":"} },
-        init = function ()
-            local wilder = require("wilder")
-            wilder.set_option("renderer", wilder.popupmenu_renderer({
-                highlighter = wilder.basic_highlighter(),
-                left = {' ', wilder.popupmenu_devicons()},
-            }))
-        end,
-    },
-    {
         "DNLHC/glance.nvim",
         opts = {}
     },
@@ -105,5 +90,9 @@ return {
         "tiagovla/scope.nvim",
         opts = {},
     },
+    {
+        "goerz/jupytext.nvim",
+        opts = {},
+    }
 }
 

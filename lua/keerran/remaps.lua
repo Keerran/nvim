@@ -9,7 +9,7 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["*y]], { desc = "Yank to clipboard" })
 vim.keymap.set({"n", "v"}, "<leader>p", [["*p]], { desc = "Paste from clipboard" })
 
 -- insert single character
-vim.keymap.set("n", "<Space>", [[:exec "normal i".nr2char(getchar())."\e"<Cr>]], { desc = "Insert a single character", noremap = true, silent = true })
+-- vim.keymap.set("n", "<Space>", [[:exec "normal i".nr2char(getchar())."\e"<Cr>]], { desc = "Insert a single character", noremap = true, silent = true })
 
 -- indenting and unindenting
 if vim.g.vscode then

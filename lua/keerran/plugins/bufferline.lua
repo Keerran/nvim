@@ -6,12 +6,12 @@ return {
     },
     opts = {
         options = {
-            -- separator_style = "slant",
+            separator_style = "thick",
             -- hover = {
             --     enabled = true,
             --     reveal = {'close'}
             -- }
-            diagnostics = "nvim_lsp",
+            -- diagnostics = "nvim_lsp",
             offsets = {
                 {
                     filetype = "NvimTree",
@@ -22,7 +22,6 @@ return {
             }
         },
     },
-    config = true,
     init = function ()
         vim.keymap.set("n", "gb", ":BufferLinePick<CR>", { silent = true, noremap = true })
     end
