@@ -32,9 +32,6 @@ return {
         opts = {},
     },
     {
-        "eandrju/cellular-automaton.nvim",
-    },
-    {
         "stevearc/aerial.nvim",
         opts = {},
         dependencies = {
@@ -68,18 +65,6 @@ return {
         end
     },
     "mg979/vim-visual-multi",
-    {
-        enabled = false,
-        "gelguy/wilder.nvim",
-        opts = { modes = {":"} },
-        init = function ()
-            local wilder = require("wilder")
-            wilder.set_option("renderer", wilder.popupmenu_renderer({
-                highlighter = wilder.basic_highlighter(),
-                left = {' ', wilder.popupmenu_devicons()},
-            }))
-        end,
-    },
     {
         "DNLHC/glance.nvim",
         opts = {}

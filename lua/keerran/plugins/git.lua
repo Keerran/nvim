@@ -2,6 +2,7 @@ return {
     "tpope/vim-fugitive",
     {
         "NeogitOrg/neogit",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
