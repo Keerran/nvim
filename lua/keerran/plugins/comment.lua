@@ -7,6 +7,7 @@ return {
         },
         opleader = {
             line = '<leader>c',
+            block = "<Nop>",
         },
         extra = {
             above = '<leader>cO',
