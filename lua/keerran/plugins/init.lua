@@ -63,4 +63,15 @@ return {
         }
     },
     "tpope/vim-abolish",
+    {
+        "3rd/image.nvim",
+        opts = {
+            backend = "kitty",
+            processor = "magick_cli",
+            neorg = {
+              enabled = true,
+              filetypes = { "norg" },
+            },
+        }
+    },
 }
