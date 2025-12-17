@@ -62,4 +62,5 @@ return {
             winblend = 0,
         }
     },
+    "tpope/vim-abolish",
 }
