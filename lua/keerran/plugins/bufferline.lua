@@ -24,5 +24,7 @@ return {
     },
     init = function ()
         vim.keymap.set("n", "gb", ":BufferLinePick<CR>", { silent = true, noremap = true })
+        vim.keymap.set("n", "<C-H>", ":BufferLineCyclePrev<CR>", { silent = true, noremap = true })
+        vim.keymap.set("n", "<C-L>", ":BufferLineCycleNext<CR>", { silent = true, noremap = true })
     end
 }
