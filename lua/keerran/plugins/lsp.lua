@@ -38,8 +38,12 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local default_setup = function(server)
-                lspconfig[server].setup({})
+                vim.lsp.config(server, {})
             end
+            vim.lsp.config("qmlls", {
+                cmd = { "qmlls" },
+            })
+            vim.lsp.config("nushell", {})
 
             local util = require('lspconfig/util')
 
@@ -73,7 +77,7 @@ return {
                 handlers = {
                     default_setup,
                     pylsp = function ()
-                        require("lspconfig").pylsp.setup({
+                        vim.lsp.config("pylsp", {
                             before_init = function (_, config)
                                 local pythonPath = get_python_path(config.root_dir)
                                 config.settings.pylsp = vim.tbl_deep_extend("force", config.settings.pylsp, {
@@ -123,6 +127,7 @@ return {
             cmp.setup({
                 sources = {
                     { name = 'nvim_lsp' },
+                    { name = "neorg" },
                     { name = "emoji" },
                 },
                 mapping = cmp.mapping.preset.insert({
