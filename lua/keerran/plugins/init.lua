@@ -57,6 +57,7 @@ return {
     "mg979/vim-visual-multi",
     {
         "lewis6991/satellite.nvim",
+        enabled = false,
         opts = {
             winblend = 0,
         }
