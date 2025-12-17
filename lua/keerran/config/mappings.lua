@@ -42,3 +42,6 @@ vim.keymap.set("n", "<ESC>", clearDisplay, { noremap = true, silent = true })
 
 -- <ESC> in terminal to go to normal mode
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
+
+-- user command for opening vim config folder
+vim.api.nvim_create_user_command("Config", "execute 'tcd' fnamemodify($MYVIMRC, ':h')", {})
