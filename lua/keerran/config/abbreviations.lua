@@ -10,6 +10,7 @@ local abbreviations = {
     git = "Git",
     lazy = "Lazy",
     mason = "Mason",
+    config = "Config",
 }
 
 for lhs, rhs in pairs(abbreviations) do
