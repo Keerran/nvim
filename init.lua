@@ -1,6 +1,7 @@
 require("keerran.globals")
 require("keerran.config.options")
 require("keerran.config.lazy")
+require("keerran.config.lsp")
 require("keerran.config.mappings")
 require("keerran.config.autocmds")
 require("keerran.config.abbreviations")
