@@ -45,3 +45,6 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- user command for opening vim config folder
 vim.api.nvim_create_user_command("Config", "execute 'tcd' fnamemodify($MYVIMRC, ':h')", {})
+
+-- execute selection (is this unsafe??)
+vim.keymap.set("v", "<leader>!", [[:<C-u>lua require("keerran.utils").calculate_selection()<CR>]])
