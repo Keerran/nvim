@@ -27,8 +27,8 @@ vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>", { silent = true })
 vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { silent = true })
 
 -- <C-Enter> to open new line below
-vim.keymap.set("n", "<C-J>", "O<ESC>", { noremap = true })
-vim.keymap.set("i", "<C-J>", "<CR><Up>", { noremap = true })
+vim.keymap.set("n", "<C-CR>", "O<ESC>", { noremap = true })
+vim.keymap.set("i", "<C-CR>", "<CR><Up>", { noremap = true })
 
 -- <ESC> to clear search and notifications
 local function clearDisplay()
