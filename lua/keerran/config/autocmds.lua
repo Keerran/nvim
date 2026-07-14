@@ -6,7 +6,7 @@ augroup('YankHighlight', { clear = true })
 autocmd("TextYankPost", {
     group = "YankHighlight",
     callback = function()
-        vim.highlight.on_yank({higroup="Cursor", timeout=100})
+        vim.highlight.on_yank({ higroup = "Cursor", timeout = 100 })
     end
 })
 
@@ -24,7 +24,7 @@ autocmd("FileType", {
             return
         end
         local function smart_insert(key)
-            return function ()
+            return function()
                 ---@diagnostic disable-next-line: param-type-mismatch
                 if vim.fn.getline(".") == "" then
                     return [["_cc]]
@@ -36,6 +36,16 @@ autocmd("FileType", {
         vim.keymap.set("n", "i", smart_insert("i"), { expr = true })
         vim.keymap.set("n", "a", smart_insert("a"), { expr = true })
     end
+})
+
+autocmd("FileType", {
+    group = augroup("tree-sitter-enable", { clear = true }),
+    callback = function(args)
+        local lang = vim.treesitter.language.get_lang(args.match)
+        if not lang or not vim.treesitter.language.add(lang) then return end
+
+        if vim.treesitter.query.get(lang, "highlights") then vim.treesitter.start(args.buf) end
+    end,
 })
 
 autocmd("LspAttach", {
