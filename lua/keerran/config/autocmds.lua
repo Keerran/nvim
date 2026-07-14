@@ -57,5 +57,7 @@ autocmd("LspAttach", {
         vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Open hover hint" })
         vim.keymap.set("n", "<leader>l", vim.lsp.buf.format, { desc = "Format file" })
         vim.keymap.set("n", "gH", vim.diagnostic.open_float, { desc = "Open diagnostic" })
+
+        vim.api.nvim_set_hl(0, '@lsp.type.string', {})
     end
 })
